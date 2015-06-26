@@ -12,7 +12,7 @@ namespace SudokuSharp.ViewModels
                 Cells[x] = new CellViewModel[9];
                 for (var y = 0; y < 9; y++)
                 {
-                    Cells[x][y] = new CellViewModel() {Number = 2};
+                    Cells[x][y] = new CellViewModel();
                 }
             }
         }

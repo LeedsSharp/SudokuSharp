@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BoardViewModel.cs" />
-    <Compile Include="Properties\CellViewModel.cs" />
+    <Compile Include="CellViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

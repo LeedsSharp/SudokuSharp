@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-
+﻿using System;
+using System.Collections.Generic;
 
 // ReSharper disable ExpressionIsAlwaysNull
 
@@ -9,12 +9,13 @@ namespace SudokuSharp.WinApp
     {
         static SampleData()
         {
+            RandNumberGenerator = new Random(DateTime.Now.Millisecond);
+
             int? _ = null;
             StarterPuzzles = new List<int?[,]>
             {
-                new int?[9, 9]
+                new [,]
                 {
-                    
                     {_, _, 2, _, _, _, 8, _, _},
                     {1, _, _, 2, _, _, _, 4, _},
                     {3, _, 6, 8, _, _, 7, 2, _},
@@ -25,7 +26,7 @@ namespace SudokuSharp.WinApp
                     {_, 1, _, _, _, 7, _, _, 6},
                     {_, _, 3, _, _, _, 4, _, _}
                 },
-                new int?[9, 9]
+                new [,]
                 {
                     {_, _, _, _, _, _, 9, 8, _},
                     {_, 6, _, _, _, _, 3, _, 5},
@@ -43,5 +44,13 @@ namespace SudokuSharp.WinApp
         }
 
         public static List<int?[,]> StarterPuzzles;
+
+        private static readonly Random RandNumberGenerator;
+
+        public static int?[,] GetRandomPuzzle()
+        {
+            var randomPuzzleIndex = RandNumberGenerator.Next(10000000) % StarterPuzzles.Count;
+            return StarterPuzzles[randomPuzzleIndex];
+        }
     }
 }
